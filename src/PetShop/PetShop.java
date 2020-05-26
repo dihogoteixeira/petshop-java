@@ -18,9 +18,9 @@ public class PetShop extends Animal implements Serializable {
     public void detalhesDoPedido(){
         JOptionPane.showMessageDialog(null,
                 "Pet Nome: "+getNomeDoAnimal()+
-                "\nPorte do Pet: "+getPorteDoAnimal()+
-                "\nTipo do Pet: "+getTipoDoAnimal()+
-                "\nTotal: R$ "+this.total, "..:: Detalhes do pedido ::.. ",1);
+                        "\nPorte do Pet: "+getPorteDoAnimal()+
+                        "\nTipo do Pet: "+getTipoDoAnimal()+
+                        "\nTotal: R$ "+this.total, "..:: Detalhes do pedido ::.. ",1);
     }
 
     public double totalDoCliente(){
@@ -28,21 +28,32 @@ public class PetShop extends Animal implements Serializable {
         return this.total;
     }
 
-    public void realizarBanho(){
-        if (getPorteDoAnimal().toUpperCase().equals("PEQUENO")){
-            setBanhar(40);
-        } else if (getPorteDoAnimal().toUpperCase().equals("MEDIO")){
-            setBanhar(50);
-        } else if (getPorteDoAnimal().toUpperCase().equals("GRANDE")){
-            setBanhar(60);
+    public void realizarBanho() {
+        int confirmarBanho = JOptionPane.showConfirmDialog(null, "Deseja dar Banho em seu Pet?", ".: Banho :.", JOptionPane.YES_NO_OPTION);
+        if (confirmarBanho == JOptionPane.YES_OPTION) {
+            if (getPorteDoAnimal().toUpperCase().equals("PEQUENO")) {
+                setBanhar(40);
+            } else if (getPorteDoAnimal().toUpperCase().equals("MEDIO")) {
+                setBanhar(50);
+            } else if (getPorteDoAnimal().toUpperCase().equals("GRANDE")) {
+                setBanhar(60);
+            } else {
+                setBanhar(0);
+            }
         }
     }
 
-    public void vacinarAnimal(){
-        if (getTipoDoAnimal().toUpperCase().equals("CACHORRO") || getTipoDoAnimal().toUpperCase().equals("GATO")){
-            setVacinar(100);
-        } else {
-            setVacinar(150);
+
+    public void vacinarAnimal() {
+        int confirmarVacina = JOptionPane.showConfirmDialog(null, "Deseja Vacinar seu Pet?", ".: Vacina :.", JOptionPane.YES_NO_OPTION);
+        if (confirmarVacina == JOptionPane.YES_OPTION) {
+            if (getTipoDoAnimal().toUpperCase().equals("CACHORRO") || getTipoDoAnimal().toUpperCase().equals("GATO")) {
+                setVacinar(100);
+            } else if (getTipoDoAnimal().toUpperCase().equals("OUTROS")){
+                setVacinar(150);
+            } else {
+                setVacinar(0);
+            }
         }
     }
 
