@@ -2,7 +2,7 @@ package PetShop;
 
 import javax.swing.*;
 
-public class clientePetShop {
+public class ClientePetShop {
 
     public static void main(String[] args) {
         int cadastrarCliente = JOptionPane.showConfirmDialog(null, "Deseja cadastar um cliente?", ".: Cadastro de Cliente :.", JOptionPane.YES_NO_OPTION);

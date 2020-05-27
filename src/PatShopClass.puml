@@ -1,0 +1,6 @@
+@startuml
+Animal -> PetShop:
+PetShop --> ClientePetShop:
+
+PetShop <-- ClientePetShop:
+@enduml
